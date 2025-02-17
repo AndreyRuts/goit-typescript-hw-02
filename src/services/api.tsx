@@ -39,4 +39,3 @@ export const fetchData = async (query:string, page:number):Promise<IResponse> =>
     return data;
 };
 
-// перед финишем проверить реальное использование user/likes и тп

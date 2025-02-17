@@ -1,7 +1,21 @@
 import s from './ImageGallery.module.css';
 import ImageCard from './ImageCard/ImageCard';
 
-const ImageGallery = ({ gallery, modalState }) => {	
+interface IImage{
+	id: string;
+	alt_description: string;
+	urls: {
+		small: string;
+		regular: string;
+	};
+};
+
+interface IGalleryProps {
+	gallery: IImage[];
+	modalState: (scr: string, alt: string) => void;
+};
+
+const ImageGallery: React.FC<IGalleryProps> = ({ gallery, modalState }) => {	
     return (
         <ul className={s.list}>
 	        {gallery.length > 0 ? (

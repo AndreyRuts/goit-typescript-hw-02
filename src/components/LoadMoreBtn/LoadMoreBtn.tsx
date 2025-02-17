@@ -1,6 +1,11 @@
 import s from './LoadMoreBtn.module.css';
 
-const LoadMoreBtn = ({handleLoadMore, isActive}) => {
+interface ILoadMoreProps {
+    isActive: boolean;
+    handleLoadMore: () => void;
+}
+
+const LoadMoreBtn: React.FC<ILoadMoreProps> = ({handleLoadMore, isActive}) => {
     return (
             <div className={s.loadMoreBtn}>
                 <button

@@ -1,10 +1,15 @@
 import s from './SearchBar.module.css';
 import toast from 'react-hot-toast';
 
-const SearchBar = ({ onSubmit }) => {
-    const handleSubmit = (evt) => {
+interface ISearchProps{
+    onSubmit: (query: string) => void;
+}
+
+const SearchBar: React.FC<ISearchProps> = ({ onSubmit }) => {
+    const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
         evt.preventDefault();
-        const customQuery = evt.target.customQuery.value.trim();
+        const customValue = evt.currentTarget;
+        const customQuery = new FormData(customValue).get('customQuery') as string;
 
         if (!customQuery) {
             toast.error('Please enter the value you are looking for');

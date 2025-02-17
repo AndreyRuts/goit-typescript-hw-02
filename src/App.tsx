@@ -78,7 +78,6 @@ const App = () => {
             <ImageGallery
                 gallery={gallery}
                 modalState={modalState}
-                // openModal={openModal}
             />
             {isLoading && <Loader />}
             {isError && <ErrorMessage />}
@@ -90,8 +89,6 @@ const App = () => {
                 closeModal={closeModal}
                 src={modalImage}
                 alt={altDescription}
-                // gallery={gallery}
-                // openModal={openModal}
             />
             <Toaster position="top-left"/>
         </>
